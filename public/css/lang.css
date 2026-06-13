@@ -1,0 +1,22 @@
+/* public/css/app.css */
+
+/* Default LTR */
+body {
+    direction: ltr;
+    text-align: left;
+}
+
+/* RTL overrides — triggered when dir="rtl" is on <html> */
+[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .sidebar {
+    float: right;
+}
+
+[dir="rtl"] .dropdown-menu {
+    left: unset;
+    right: 0;
+}
