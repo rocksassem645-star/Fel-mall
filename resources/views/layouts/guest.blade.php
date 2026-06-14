@@ -50,7 +50,29 @@
                     </li>
                 </ul>
 
-                <div class="d-flex gap-2 ms-3">
+                <div class="d-flex align-items-center gap-2 ms-3">
+
+                    {{-- Language Switcher --}}
+                    <div class="dropdown">
+                        <button class="btn btn-login dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="fa-solid fa-globe me-1"></i>
+                            {{ LaravelLocalization::getCurrentLocaleNative() }}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <li>
+                                    <a class="dropdown-item"
+                                       rel="alternate"
+                                       hreflang="{{ $localeCode }}"
+                                       href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    {{-- Auth --}}
                     @auth
                         <div class="dropdown">
                             <button class="btn btn-login dropdown-toggle" type="button" data-bs-toggle="dropdown">
@@ -59,10 +81,7 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a></li>
-                                {{-- <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li> --}}
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
@@ -75,6 +94,7 @@
                         <a href="{{ route('login') }}" class="btn btn-login">Login</a>
                         <a href="{{ route('register') }}" class="btn btn-register">Register</a>
                     @endauth
+
                 </div>
             </div>
         </div>
