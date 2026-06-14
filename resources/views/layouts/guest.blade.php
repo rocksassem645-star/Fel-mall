@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     {{-- Google Fonts --}}
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     {{-- Custom CSS --}}
     <link rel="stylesheet" href="{{ asset('css/mall.css') }}">
@@ -38,10 +39,14 @@
                         <a class="nav-link" href="{{ route('shop') }}">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Deals</a>
+                        <a class="nav-link" href="https://web.whatsapp.com/" target="_blank">
+                            <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="https://web.telegram.org/" target="_blank">
+                            <i class="fa-brands fa-telegram me-1"></i> Telegram
+                        </a>
                     </li>
                 </ul>
 
@@ -55,7 +60,9 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a></li>
                                 {{-- <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li> --}}
-                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
@@ -86,7 +93,7 @@
     {{-- JavaScript --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/mall.js') }}"></script>
-    
+
     @stack('scripts')
 </body>
 
