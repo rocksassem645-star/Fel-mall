@@ -1,231 +1,152 @@
-    <!doctype html>
-    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-      dir="{{ in_array(app()->getLocale(), ['ar', 'en']) ? 'rtl' : 'ltr' }}">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+  dir="{{ in_array(app()->getLocale(), ['ar', 'en']) ? 'rtl' : 'ltr' }}">
 
-    <head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Meta -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- Bootstrap --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- Bootstrap RTL --}}
+    @if(in_array(app()->getLocale(), ['ar', 'en', 'ru']))
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    @endif
 
+    {{-- Google Fonts --}}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.bunny.net">
+    {{-- Font Awesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    {{-- FEL MALL CSS --}}
+    <link rel="stylesheet" href="{{ asset('css/mall.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/lang.css') }}">
 
+    @stack('styles')
+</head>
 
-       <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-    crossorigin="anonymous">
+<body>
 
-<!-- Bootstrap RTL CSS -->
-@if(in_array(app()->getLocale(), ['ar', 'en', 'ru']))
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css"
-        rel="stylesheet"
-        crossorigin="anonymous">
-@endif
+    <div id="app">
 
-<!-- Your custom CSS -->
-<link rel="stylesheet" href="{{ asset('css/lang.css') }}">
-        <!-- Font Awesome -->
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer" />
+        {{-- NAVBAR --}}
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
 
+                {{-- Brand --}}
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    FEL <span>MALL</span>
+                </a>
 
-        <!-- Scripts -->
-        {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+                {{-- Mobile Toggle --}}
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="{{ __('language.Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    </head>
+                {{-- Navbar Content --}}
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <body>
+                    <ul class="navbar-nav me-auto">
+                    </ul>
 
-        <div id="app">
+                    <ul class="navbar-nav ms-auto align-items-center gap-2">
 
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                        {{-- Language Switcher --}}
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn btn-login dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                    {{ LaravelLocalization::getCurrentLocaleNative() }}
+                                </button>
+                                <ul class="dropdown-menu">
+                                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                        <li>
+                                            <a class="dropdown-item"
+                                               rel="alternate"
+                                               hreflang="{{ $localeCode }}"
+                                               href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                {{ $properties['native'] }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
 
-                <div class="container">
+                        {{-- Auth Links --}}
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="btn btn-login" href="{{ route('login') }}">
+                                        {{ __('language.Login') }}
+                                    </a>
+                                </li>
+                            @endif
 
-                    <!-- Brand -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{__('language.Dashboard')}}
-                    </a>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="btn btn-register" href="{{ route('register') }}">
+                                        {{ __('language.Register') }}
+                                    </a>
+                                </li>
+                            @endif
 
+                        @else
+                            <li class="nav-item dropdown">
+                                <button class="btn btn-login dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown">
+                                    <i class="fa-solid fa-user me-1"></i>
+                                    {{ Auth::user()->name }}
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <i class="fa-solid fa-right-from-bracket me-1"></i>
+                                            {{ __('language.Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endguest
 
-                    <!-- Mobile Toggle -->
-                    <button class="navbar-toggler"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent"
-                            aria-controls="navbarSupportedContent"
-                            aria-expanded="false"
-                            aria-label="{{__('language.Toggle navigation')}}">
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-                        <span class="navbar-toggler-icon"></span>
-
-                    </button>
-
-
-                    <!-- Navbar Content -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                        <!-- Left Side -->
-                        <ul class="navbar-nav me-auto">
-                        </ul>
-
-
-                        <!-- Right Side -->
-                        <ul class="navbar-nav ms-auto">
-
-                            <!-- Languages -->
-                        <div class="dropdown">
-
-        <button class="btn dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">
-                            
-            {{ LaravelLocalization::getCurrentLocaleNative() }}
-
-        </button>
-
-        <ul class="dropdown-menu">
-
-            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-
-                <li>
-
-                    <a class="dropdown-item"
-                    rel="alternate"
-                    hreflang="{{ $localeCode }}"
-                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-
-                        {{ $properties['native'] }}
-
-                    </a>
-
-                </li>
-
-            @endforeach
-
-        </ul>
+        {{-- Main Content --}}
+        <main class="py-4">
+            @yield('content')
+        </main>
 
     </div>
 
-
-                            <!-- Authentication Links -->
-                            @guest
-
-                                @if (Route::has('login'))
-
-                                    <li class="nav-item">
-
-                                        <a class="nav-link" href="{{ route('login') }}">
-                                            {{ __('language.Login') }}
-                                        </a>
-
-                                    </li>
-
-                                @endif
-
-
-                                @if (Route::has('register'))
-
-                                    <li class="nav-item">
-
-                                        <a class="nav-link" href="{{ route('register') }}">
-                                            {{ __('language.Register') }}
-                                        </a>
-
-                                    </li>
-
-                                @endif
-
-                            @else
-
-                                <!-- User Dropdown -->
-                                <li class="nav-item dropdown">
-
-                                    <a id="navbarDropdown"
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    v-pre>
-
-                                        {{ Auth::user()->name }}
-
-                                    </a>
-
-
-                                    <div class="dropdown-menu dropdown-menu-end"
-                                        aria-labelledby="navbarDropdown">
-
-                                        <!-- Logout -->
-                                        <a class="dropdown-item"
-                                        href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-
-                                            {{ __('language.Logout') }}
-
-                                        </a>
-
-
-                                        <!-- Logout Form -->
-                                        <form id="logout-form"
-                                            action="{{ route('logout') }}"
-                                            method="POST"
-                                            class="d-none">
-
-                                            @csrf
-
-                                        </form>
-
-                                    </div>
-
-                                </li>
-
-                            @endguest
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-            </nav>
-
-
-            <!-- Main Content -->
-            <main class="py-4">
-
-                @yield('content')
-
-            </main>
-
+    {{-- Footer --}}
+    <footer>
+        <div class="container">
+            <p>&copy; {{ date('Y') }} <strong>FEL MALL</strong> — All rights reserved.</p>
         </div>
+    </footer>
 
+    {{-- Bootstrap JS --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/mall.js') }}"></script>
 
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-                crossorigin="anonymous">
-        </script>
+    @stack('scripts')
 
-    </body>
+</body>
 
-    </html>
+</html>
