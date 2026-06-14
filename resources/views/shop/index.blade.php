@@ -13,14 +13,14 @@
                     <div class="card-header bg-dark text-white rounded-top-4">
                         <h5 class="mb-0">
                             <i class="fa-solid fa-filter me-2"></i>
-                            Categories
+                            {{ __('language.Categories') }}
                         </h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled">
                             <li class="mb-2">
                                 <a href="{{ route('shop') }}" class="text-decoration-none">
-                                    All Products
+                                    {{ __('language.All Products') }}
                                 </a>
                             </li>
                             @foreach ($categories as $category)
@@ -46,9 +46,9 @@
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h2 class="fw-bold">
                         <i class="fa-solid fa-store me-2 text-success"></i>
-                        Our Products
+                        {{ __('language.Our Products') }}
                     </h2>
-                    <p class="text-muted mb-0">{{ $products->total() }} products found</p>
+                    <p class="text-muted mb-0">{{ $products->total() }} {{ __('language.products found') }}</p>
                 </div>
 
                 {{-- Products Grid --}}
@@ -76,9 +76,9 @@
 
                                     {{-- Stock Status --}}
                                     @if ($product->quantity > 0)
-                                        <span class="badge bg-success mb-3">In Stock</span>
+                                        <span class="badge bg-success mb-3">{{ __('language.In Stock') }}</span>
                                     @else
-                                        <span class="badge bg-danger mb-3">Out of Stock</span>
+                                        <span class="badge bg-danger mb-3">{{ __('language.Out of Stock') }}</span>
                                     @endif
                                 </div>
 
@@ -87,19 +87,19 @@
                                     <div class="d-flex gap-2">
                                         <a href="{{ route('product.show', $product->id) }}"
                                             class="btn btn-outline-success flex-grow-1">
-                                            <i class="fa-solid fa-eye me-1"></i> View
+                                            <i class="fa-solid fa-eye me-1"></i> {{ __('language.View') }}
                                         </a>
                                         @if ($product->quantity > 0)
                                             <form action="{{ route('cart.add', $product->id) }}" method="POST"
                                                 class="flex-grow-1">
                                                 @csrf
                                                 <button type="submit" class="btn btn-success w-100">
-                                                    <i class="fa-solid fa-cart-plus me-1"></i> Add
+                                                    <i class="fa-solid fa-cart-plus me-1"></i> {{ __('language.Add') }}
                                                 </button>
                                             </form>
                                         @else
                                             <button class="btn btn-secondary w-100" disabled>
-                                                <i class="fa-solid fa-ban me-1"></i> Out
+                                                <i class="fa-solid fa-ban me-1"></i> {{ __('language.Out') }}
                                             </button>
                                         @endif
                                     </div>
@@ -110,8 +110,8 @@
                         <div class="col-12">
                             <div class="alert alert-info text-center py-5">
                                 <i class="fa-solid fa-box-open fa-2x mb-3 d-block"></i>
-                                <h4>No products found</h4>
-                                <p>Check back later for new products!</p>
+                                <h4>{{ __('language.No products found') }}</h4>
+                                <p>{{ __('language.check_back_later') }}</p>
                             </div>
                         </div>
                     @endforelse

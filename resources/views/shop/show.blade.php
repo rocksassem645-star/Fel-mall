@@ -9,8 +9,8 @@
     {{-- Breadcrumb Navigation --}}
     <nav aria-label="breadcrumb" class="mb-4">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('shop') }}">Shop</a></li>
+            <li class="breadcrumb-item"><a href="{{ url('/') }}">{{ __('language.Home') }}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('shop') }}">{{ __('language.Shop') }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $product->title_en }}</li>
         </ol>
     </nav>
@@ -51,12 +51,12 @@
                         @if($product->quantity > 0)
                             <span class="text-success">
                                 <i class="fa-solid fa-check-circle me-1"></i> 
-                                In Stock ({{ $product->quantity }} available)
+                                {{ __('language.In Stock') }} ({{ $product->quantity }} {{ __('language.available') }})
                             </span>
                         @else
                             <span class="text-danger">
                                 <i class="fa-solid fa-times-circle me-1"></i> 
-                                Out of Stock
+                                {{ __('language.Out of Stock') }}
                             </span>
                         @endif
                     </div>
@@ -65,7 +65,7 @@
                     <div class="mb-4">
                         <h5 class="fw-bold">
                             <i class="fa-solid fa-align-left me-2 text-success"></i>
-                            Description
+                            {{ __('language.Description') }}
                         </h5>
                         <p class="text-muted">{{ $product->description_en }}</p>
                     </div>
@@ -76,7 +76,7 @@
                             @csrf
                             <div class="row g-3 align-items-end">
                                 <div class="col-auto">
-                                    <label for="quantity" class="form-label fw-bold">Quantity</label>
+                                    <label for="quantity" class="form-label fw-bold">{{ __('language.Quantity') }}</label>
                                     <input type="number" 
                                            name="quantity" 
                                            id="quantity" 
@@ -89,7 +89,7 @@
                                 <div class="col">
                                     <button type="submit" class="btn btn-success btn-lg w-100">
                                         <i class="fa-solid fa-cart-shopping me-2"></i>
-                                        Add to Cart
+                                        {{ __('language.Add to Cart') }}
                                     </button>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                     @else
                         <button class="btn btn-secondary btn-lg w-100" disabled>
                             <i class="fa-solid fa-ban me-2"></i>
-                            Currently Unavailable
+                            {{ __('language.Currently Unavailable') }}
                         </button>
                     @endif
 
@@ -111,7 +111,7 @@
         <div class="mt-5">
             <h3 class="fw-bold mb-4">
                 <i class="fa-solid fa-heart me-2 text-success"></i>
-                You May Also Like
+                {{ __('language.You May Also Like') }}
             </h3>
             <div class="row g-4">
                 @foreach($relatedProducts as $related)
@@ -125,7 +125,7 @@
                                 <h6 class="fw-bold">{{ $related->title_en }}</h6>
                                 <p class="text-success fw-bold">${{ number_format($related->price, 2) }}</p>
                                 <a href="{{ route('product.show', $related->id) }}" class="btn btn-sm btn-outline-success">
-                                    View Product
+                                    {{ __('language.View Product') }}
                                 </a>
                             </div>
                         </div>

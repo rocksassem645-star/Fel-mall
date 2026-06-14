@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container py-5">
-        <h1 class="mb-4">My Orders</h1>
+        <h1 class="mb-4">{{ __('language.My Orders') }}</h1>
 
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
@@ -19,13 +19,13 @@
                 <table class="table table-bordered">
                     <thead class="table-dark">
                         <tr>
-                            <th>Order #</th>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Status</th>
-                            <th>Date</th>
-                            <th>Action</th>
+                            <th>{{ __('language.Order #') }}</th>
+                            <th>{{ __('language.Product') }}</th>
+                            <th>{{ __('language.Quantity') }}</th>
+                            <th>{{ __('language.Total') }}</th>
+                            <th>{{ __('language.Status') }}</th>
+                            <th>{{ __('language.Date') }}</th>
+                            <th>{{ __('language.Action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,26 +38,26 @@
                                 <td>
                                     <span
                                         class="badge bg-{{ $order->status == 'completed' ? 'success' : ($order->status == 'cancelled' ? 'danger' : 'warning') }}">
-                                        {{ ucfirst($order->status) }}
+                                        {{ __('language.' . $order->status) }}
                                     </span>
                                 </td>
                                 <td>{{ $order->created_at->format('M d, Y') }}</td>
                                 <td class="d-flex gap-2">
-                                    <a href="{{ route('user.order.show', $order->id) }}" class="btn btn-sm btn-info">View</a>
+                                    <a href="{{ route('user.order.show', $order->id) }}" class="btn btn-sm btn-info">{{ __('language.View') }}</a>
 
                                     @if ($order->status === 'pending')
                                         <form action="{{ route('order.cancel', $order->id) }}" method="POST"
-                                            onsubmit="return confirm('Are you sure you want to cancel this order?')">
+                                            onsubmit="return confirm('{{ __('language.confirm_cancel') }}')">
                                             @csrf
-                                            <button type="submit" class="btn btn-sm btn-warning">Cancel</button>
+                                            <button type="submit" class="btn btn-sm btn-warning">{{ __('language.Cancel') }}</button>
                                         </form>
                                     @endif
 
                                     <form action="{{ route('deleteUserOrder', $order->id) }}" method="POST"
-                                        onsubmit="return confirm('Are you sure you want to delete this order?')">
+                                        onsubmit="return confirm('{{ __('language.confirm_delete') }}')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                        <button type="submit" class="btn btn-sm btn-danger">{{ __('language.Delete') }}</button>
                                     </form>
                                 </td>
                             </tr>
@@ -68,8 +68,8 @@
             </div>
             {{ $orders->links() }}
         @else
-            <div class="alert alert-info">You haven't placed any orders yet.</div>
-            <a href="{{ route('shop') }}" class="btn btn-success">Start Shopping</a>
+            <div class="alert alert-info">{{ __('language.no_orders_yet') }}</div>
+            <a href="{{ route('shop') }}" class="btn btn-success">{{ __('language.Start Shopping') }}</a>
         @endif
     </div>
 @endsection
