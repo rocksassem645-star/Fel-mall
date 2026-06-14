@@ -4,6 +4,11 @@
 
 @section('content')
     <div class="container py-5">
+        {{-- Back Button --}}
+        <a href="{{ route('my.account') }}" class="btn mb-4"
+            style="background: linear-gradient(135deg, #2e7d32, #1b5e20); color:white; border-radius:8px;">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
         <h1 class="mb-4">{{ __('language.My Orders') }}</h1>
 
         @if (session('success'))
@@ -43,13 +48,15 @@
                                 </td>
                                 <td>{{ $order->created_at->format('M d, Y') }}</td>
                                 <td class="d-flex gap-2">
-                                    <a href="{{ route('user.order.show', $order->id) }}" class="btn btn-sm btn-info">{{ __('language.View') }}</a>
+                                    <a href="{{ route('user.order.show', $order->id) }}"
+                                        class="btn btn-sm btn-info">{{ __('language.View') }}</a>
 
                                     @if ($order->status === 'pending')
                                         <form action="{{ route('order.cancel', $order->id) }}" method="POST"
                                             onsubmit="return confirm('{{ __('language.confirm_cancel') }}')">
                                             @csrf
-                                            <button type="submit" class="btn btn-sm btn-warning">{{ __('language.Cancel') }}</button>
+                                            <button type="submit"
+                                                class="btn btn-sm btn-warning">{{ __('language.Cancel') }}</button>
                                         </form>
                                     @endif
 
@@ -57,7 +64,8 @@
                                         onsubmit="return confirm('{{ __('language.confirm_delete') }}')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">{{ __('language.Delete') }}</button>
+                                        <button type="submit"
+                                            class="btn btn-sm btn-danger">{{ __('language.Delete') }}</button>
                                     </form>
                                 </td>
                             </tr>

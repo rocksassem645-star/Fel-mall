@@ -1,55 +1,61 @@
-<section class="space-y-6">
-    <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Delete Account') }}
-        </h2>
+<p class="text-muted mb-4">{{ __('language.delete_account_warning') }}</p>
 
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
-        </p>
-    </header>
+{{-- Trigger Button --}}
+<button type="button" class="btn py-2 px-4 fw-bold text-white rounded-3"
+    style="background: linear-gradient(135deg, #dc3545, #b02a37);"
+    data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+    <i class="fa-solid fa-trash me-2"></i>{{ __('language.Delete Account') }}
+</button>
 
-    <x-danger-button
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
-    >{{ __('Delete Account') }}</x-danger-button>
+{{-- Confirmation Modal --}}
+<div class="modal fade" id="deleteAccountModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
 
-    <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
-        <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
-            @csrf
-            @method('delete')
-
-            <h2 class="text-lg font-medium text-gray-900">
-                {{ __('Are you sure you want to delete your account?') }}
-            </h2>
-
-            <p class="mt-1 text-sm text-gray-600">
-                {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
-            </p>
-
-            <div class="mt-6">
-                <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" />
-
-                <x-text-input
-                    id="password"
-                    name="password"
-                    type="password"
-                    class="mt-1 block w-3/4"
-                    placeholder="{{ __('Password') }}"
-                />
-
-                <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
+            <div class="modal-header text-white rounded-top-4"
+                style="background: linear-gradient(135deg, #dc3545, #b02a37);">
+                <h5 class="modal-title fw-bold">
+                    <i class="fa-solid fa-triangle-exclamation me-2"></i>
+                    {{ __('language.confirm_delete_account') }}
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
 
-            <div class="mt-6 flex justify-end">
-                <x-secondary-button x-on:click="$dispatch('close')">
-                    {{ __('Cancel') }}
-                </x-secondary-button>
+            <div class="modal-body p-4" style="background:#f5f7fa;">
+                <p class="text-muted mb-4">{{ __('language.delete_account_confirm_desc') }}</p>
 
-                <x-danger-button class="ms-3">
-                    {{ __('Delete Account') }}
-                </x-danger-button>
+                <form method="POST" action="{{ route('profile.destroy') }}">
+                    @csrf
+                    @method('delete')
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-muted">{{ __('language.Password') }}</label>
+                        <input type="password" name="password"
+                            class="form-control rounded-3 border-0 shadow-sm"
+                            style="padding:12px;"
+                            placeholder="{{ __('language.Password') }}">
+                        @if($errors->userDeletion->get('password'))
+                            <div class="alert alert-warning mt-2 py-2 rounded-3">
+                                {{ implode(' ', $errors->userDeletion->get('password')) }}
+                            </div>
+                        @endif
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2">
+                        <button type="button" class="btn fw-bold rounded-3"
+                            style="background:#e2e8f0; color:#1a1a1a;"
+                            data-bs-dismiss="modal">
+                            {{ __('language.Cancel') }}
+                        </button>
+                        <button type="submit" class="btn fw-bold text-white rounded-3"
+                            style="background: linear-gradient(135deg, #dc3545, #b02a37);">
+                            <i class="fa-solid fa-trash me-2"></i>{{ __('language.Delete Account') }}
+                        </button>
+                    </div>
+
+                </form>
             </div>
-        </form>
-    </x-modal>
-</section>
+
+        </div>
+    </div>
+</div>
