@@ -15,11 +15,11 @@
                     <p class="text-muted small">{{ Auth::user()->email }}</p>
                     <hr>
                     <ul class="list-unstyled text-start">
-                        <li class="mb-2">
+                        {{-- <li class="mb-2">
                             <a href="{{ route('my.account') }}" class="text-decoration-none text-success">
                                 <i class="fa-solid fa-tachometer-alt me-2"></i> {{ __('language.Dashboard') }}
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="mb-2">
                             <a href="{{ route('user.orders') }}" class="text-decoration-none">
                                 <i class="fa-solid fa-box me-2"></i> {{ __('language.My Orders') }}

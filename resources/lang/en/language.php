@@ -101,6 +101,8 @@ return [
     'delete_account_warning'        => 'Once your account is deleted, all data will be permanently removed.',
     'confirm_delete_account'        => 'Are you sure you want to delete your account?',
     'delete_account_confirm_desc'   => 'Please enter your password to confirm permanent deletion.',
+    'Added to cart successfully' => 'Added to cart successfully!',
+    'Back to Shop'               => 'Back to Shop',
 
     // Product show
     'Home'                  => 'Home',

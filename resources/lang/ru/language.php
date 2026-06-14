@@ -131,6 +131,8 @@ return [
     'delete_account_warning'        => 'После удаления аккаунта все данные будут удалены навсегда.',
     'confirm_delete_account'        => 'Вы уверены, что хотите удалить аккаунт?',
     'delete_account_confirm_desc'   => 'Введите пароль для подтверждения удаления.',
+    'Added to cart successfully' => 'Успешно добавлено в корзину!',
+    'Back to Shop'               => 'Назад в магазин',
 
     // Orders
     'Cancel'                => 'Отменить',

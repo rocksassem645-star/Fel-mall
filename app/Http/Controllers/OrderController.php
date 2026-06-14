@@ -63,7 +63,7 @@ class OrderController extends Controller
         }
 
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Product added to cart!');
+        return redirect()->back()->with('cart_success', true);
     }
 
     public function updateCart(Request $request, $id)

@@ -131,6 +131,9 @@ return [
     'delete_account_warning'        => 'بمجرد حذف حسابك، سيتم حذف جميع بياناتك نهائياً.',
     'confirm_delete_account'        => 'هل أنت متأكد من حذف حسابك؟',
     'delete_account_confirm_desc'   => 'أدخل كلمة المرور للتأكيد على الحذف النهائي.',
+    'Added to cart successfully' => 'تمت الإضافة إلى السلة بنجاح!',
+    'Back to Shop'               => 'العودة للمتجر',
+
     // Orders
     'Cancel'                => 'إلغاء',
     'Delete'                => 'حذف',
