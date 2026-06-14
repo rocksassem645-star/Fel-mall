@@ -11,13 +11,16 @@
                     <h1>{{ __('language.Welcome to') }} <span>FEL MALL</span></h1>
                     <p class="lead mb-4">{{ __('language.hero_subtitle') }}</p>
                     @auth
-                        <a href="{{ route('dashboard') }}" class="btn btn-success btn-lg px-5">{{ __('language.Continue Shopping') }}</a>
+                        <a href="{{ route('dashboard') }}"
+                            class="btn btn-success btn-lg px-5">{{ __('language.Continue Shopping') }}</a>
                     @else
-                        <a href="{{ route('register') }}" class="btn btn-success btn-lg px-5" style="background: #f57c00; border-color: #f57c00;">{{ __('language.Start Shopping') }} →</a>
+                        <a href="{{ route('register') }}" class="btn btn-success btn-lg px-5"
+                            style="background: #f57c00; border-color: #f57c00;">{{ __('language.Start Shopping') }} →</a>
                     @endauth
                 </div>
                 <div class="col-lg-6 text-center d-none d-lg-block">
-                    <i class="fas fa-shopping-bag" style="font-size: 12rem; opacity: 0.1; color: #2e7d32;"></i>
+                    <img src="{{ asset('img/Logo.jpg') }}"
+                        style=" width: 350px; height: 350px; object-fit: contain;">
                 </div>
             </div>
         </div>
@@ -65,7 +68,8 @@
             <div class="container text-center">
                 <h2 class="mb-3">{{ __('language.Ready to shop?') }}</h2>
                 <p class="mb-4">{{ __('language.cta_desc') }}</p>
-                <a href="{{ route('register') }}" class="btn btn-light btn-lg px-5" style="color: #2e7d32; font-weight: 600;">{{ __('language.Create Account') }} →</a>
+                <a href="{{ route('register') }}" class="btn btn-light btn-lg px-5"
+                    style="color: #2e7d32; font-weight: 600;">{{ __('language.Create Account') }} →</a>
             </div>
         </section>
     @endguest
@@ -74,7 +78,8 @@
     <section class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 style="color: #cf901c;">{{ __('language.Why you\'ll love') }} <span style="color: #2e7d32;">FEL MALL</span></h2>
+                <h2 style="color: #cf901c;">{{ __('language.Why you\'ll love') }} <span style="color: #2e7d32;">FEL
+                        MALL</span></h2>
                 <p style="color: #090b09;">{{ __('language.why_desc') }}</p>
             </div>
             <div class="row g-4">
