@@ -15,8 +15,8 @@
                             <i class="fa-solid fa-pen-to-square fa-lg"></i>
                         </div>
                         <div>
-                            <h5 class="mb-0 fw-bold">Edit Category</h5>
-                            <small style="opacity:0.85;">Update the details below</small>
+                            <h5 class="mb-0 fw-bold">{{ __('language.Edit Category') }}</h5>
+                            <small style="opacity:0.85;">{{ __('language.Update the details below') }}</small>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
 
                         {{-- ID --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">ID</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.ID') }}</label>
                             <input type="text" name="id" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->id }}" style="padding:12px;">
                             @error('id')
@@ -49,7 +49,7 @@
 
                         {{-- Image --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Image</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Image') }}</label>
                             <input type="file" name="cate_img" class="form-control rounded-3 border-0 shadow-sm"
                                 style="padding:12px;">
                             @error('cate_img')
@@ -59,7 +59,7 @@
 
                         {{-- Title EN --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Title (English)</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Title (English)') }}</label>
                             <input type="text" name="title_en" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->title_en }}" style="padding:12px;">
                             @error('title_en')
@@ -69,7 +69,7 @@
 
                         {{-- Title AR --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Title (Arabic)</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Title (Arabic)') }}</label>
                             <input type="text" name="title_ar" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->title_ar }}" style="padding:12px;" dir="rtl">
                             @error('title_ar')
@@ -79,7 +79,7 @@
 
                         {{-- Title RU --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Title (Russian)</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Title (Russian)') }}</label>
                             <input type="text" name="title_ru" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->title_ru }}" style="padding:12px;">
                             @error('title_ru')
@@ -89,7 +89,7 @@
 
                         {{-- Description EN --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Description (English)</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Description (English)') }}</label>
                             <input type="text" name="description_en" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->description_en }}" style="padding:12px;">
                             @error('description_en')
@@ -99,7 +99,7 @@
 
                         {{-- Description AR --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Description (Arabic)</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Description (Arabic)') }}</label>
                             <input type="text" name="description_ar" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->description_ar }}" style="padding:12px;" dir="rtl">
                             @error('description_ar')
@@ -109,7 +109,7 @@
 
                         {{-- Description RU --}}
                         <div class="mb-4">
-                            <label class="form-label fw-bold text-muted">Description (Russian)</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Description (Russian)') }}</label>
                             <input type="text" name="description_ru" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->description_ru }}" style="padding:12px;">
                             @error('description_ru')
@@ -121,7 +121,7 @@
                         <div class="d-grid">
                             <button type="submit" class="btn py-3 fw-bold text-white rounded-3"
                                 style="background: linear-gradient(135deg, #2e7d32, #1b5e20); font-size:1rem;">
-                                <i class="fa-solid fa-pen-to-square me-2"></i> Update Category
+                                <i class="fa-solid fa-pen-to-square me-2"></i> {{ __('language.Update Category') }}
                             </button>
                         </div>
 

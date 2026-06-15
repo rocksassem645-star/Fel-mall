@@ -10,14 +10,20 @@
                 {{-- Fancy Header --}}
                 <div class="card-header py-4 text-white"
                     style="background: linear-gradient(135deg, #f57c00, #e65100);">
-                    <div class="d-flex align-items-center gap-3">
-                        <div style="background:rgba(255,255,255,0.2); width:45px; height:45px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
-                            <i class="fa-solid fa-user-plus fa-lg"></i>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-3">
+                            <div style="background:rgba(255,255,255,0.2); width:45px; height:45px; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                                <i class="fa-solid fa-user-plus fa-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0 fw-bold">{{ __('language.Add New User') }}</h5>
+                                <small style="opacity:0.85;">{{ __('language.Fill in the details below') }}</small>
+                            </div>
                         </div>
-                        <div>
-                            <h5 class="mb-0 fw-bold">Add New User</h5>
-                            <small style="opacity:0.85;">Fill in the details below</small>
-                        </div>
+                        <a href="{{ route('home') }}" class="btn fw-bold"
+                            style="background:rgba(255,255,255,0.2); color:white; border-radius:8px; border:1px solid rgba(255,255,255,0.4);">
+                            <i class="fa-solid fa-house me-1"></i> {{ __('language.Home') }}
+                        </a>
                     </div>
                 </div>
 
@@ -38,7 +44,7 @@
 
                         {{-- Name --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Name</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Name') }}</label>
                             <input type="text" name="name" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ old('name') }}" style="padding:12px;">
                             @error('name')
@@ -48,7 +54,7 @@
 
                         {{-- Email --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Email</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Email') }}</label>
                             <input type="email" name="email" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ old('email') }}" style="padding:12px;">
                             @error('email')
@@ -58,7 +64,7 @@
 
                         {{-- Password --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Password</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Password') }}</label>
                             <input type="password" name="password" class="form-control rounded-3 border-0 shadow-sm"
                                 style="padding:12px;">
                             @error('password')
@@ -68,7 +74,7 @@
 
                         {{-- Role --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Role</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Role') }}</label>
                             <input type="text" name="role" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ old('role') }}" style="padding:12px;">
                             @error('role')
@@ -78,7 +84,7 @@
 
                         {{-- Status --}}
                         <div class="mb-4">
-                            <label class="form-label fw-bold text-muted">Status</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Status') }}</label>
                             <input type="text" name="status" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ old('status') }}" style="padding:12px;">
                             @error('status')
@@ -90,7 +96,7 @@
                         <div class="d-grid">
                             <button type="submit" class="btn py-3 fw-bold text-white rounded-3"
                                 style="background: linear-gradient(135deg, #2e7d32, #1b5e20); font-size:1rem;">
-                                <i class="fa-solid fa-user-plus me-2"></i> Add User
+                                <i class="fa-solid fa-user-plus me-2"></i> {{ __('language.Add User') }}
                             </button>
                         </div>
 

@@ -6,9 +6,9 @@
     {{-- Page Title --}}
     <div class="mb-4">
         <h2 style="font-weight:800; background: linear-gradient(135deg, #2e7d32, #4caf50); background-clip:text; -webkit-background-clip:text; color:transparent;">
-            Admin Dashboard
+            {{ __('language.Admin Dashboard') }}
         </h2>
-        <p>Manage your store from one place</p>
+        <p>{{ __('language.Manage your store from one place') }}</p>
     </div>
 
     <div class="row">
@@ -266,7 +266,7 @@
                                                 @elseif($item->status == 'delivered') bg-success
                                                 @elseif($item->status == 'cancelled') bg-danger
                                                 @endif">
-                                                {{ $item->status }}
+                                                {{ __('language.' . $item->status) }}
                                             </span>
                                         </td>
                                         <td>

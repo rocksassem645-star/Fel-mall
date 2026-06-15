@@ -1,3 +1,4 @@
+
 @extends('layouts.guest')
 
 @section('title', $product->title_en . ' - FEL MALL')

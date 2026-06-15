@@ -16,13 +16,13 @@
                                 <i class="fa-solid fa-table-cells-large fa-lg"></i>
                             </div>
                             <div>
-                                <h5 class="mb-0 fw-bold">Category Details</h5>
-                                <small style="opacity:0.85;">Viewing category #{{ $result->id }}</small>
+                                <h5 class="mb-0 fw-bold">{{ __('language.Category Details') }}</h5>
+                                <small style="opacity:0.85;">{{ __('language.Viewing category') }} #{{ $result->id }}</small>
                             </div>
                         </div>
                         <a href="{{ route('home') }}" class="btn fw-bold"
                             style="background:rgba(255,255,255,0.2); color:white; border-radius:8px; border: 1px solid rgba(255,255,255,0.4);">
-                            <i class="fa-solid fa-house me-1"></i> Home
+                            <i class="fa-solid fa-house me-1"></i> {{ __('language.Home') }}
                         </a>
                     </div>
                 </div>
@@ -32,15 +32,15 @@
                         <table class="table table-hover align-middle text-center mb-0">
                             <thead style="background:#f5f7fa;">
                                 <tr>
-                                    <th class="py-3 text-muted">ID</th>
-                                    <th class="py-3 text-muted">Image</th>
-                                    <th class="py-3 text-muted">Title EN</th>
-                                    <th class="py-3 text-muted">Title AR</th>
-                                    <th class="py-3 text-muted">Title RU</th>
-                                    <th class="py-3 text-muted">Description EN</th>
-                                    <th class="py-3 text-muted">Description AR</th>
-                                    <th class="py-3 text-muted">Description RU</th>
-                                    <th class="py-3 text-muted">Operation</th>
+                                    <th class="py-3 text-muted">{{ __('language.ID') }}</th>
+                                    <th class="py-3 text-muted">{{ __('language.Image') }}</th>
+                                    <th class="py-3 text-muted">{{ __('language.Title EN') }}</th>
+                                    <th class="py-3 text-muted">{{ __('language.Title AR') }}</th>
+                                    <th class="py-3 text-muted">{{ __('language.Title RU') }}</th>
+                                    <th class="py-3 text-muted">{{ __('language.Description EN') }}</th>
+                                    <th class="py-3 text-muted">{{ __('language.Description AR') }}</th>
+                                    <th class="py-3 text-muted">{{ __('language.Description RU') }}</th>
+                                    <th class="py-3 text-muted">{{ __('language.Operation') }}</th>
                                 </tr>
                             </thead>
                             <tbody>

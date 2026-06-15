@@ -15,8 +15,8 @@
                             <i class="fa-solid fa-user-pen fa-lg"></i>
                         </div>
                         <div>
-                            <h5 class="mb-0 fw-bold">Edit User</h5>
-                            <small style="opacity:0.85;">Update details for {{ $result->name }}</small>
+                            <h5 class="mb-0 fw-bold">{{ __('language.Edit User') }}</h5>
+                            <small style="opacity:0.85;">{{ __('language.Update details for') }} {{ $result->name }}</small>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
 
                         {{-- ID --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">ID</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.ID') }}</label>
                             <input type="text" name="id" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->id }}" style="padding:12px;">
                             @error('id')
@@ -49,7 +49,7 @@
 
                         {{-- Name --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Name</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Name') }}</label>
                             <input type="text" name="name" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->name }}" style="padding:12px;">
                             @error('name')
@@ -59,7 +59,7 @@
 
                         {{-- Email --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Email</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Email') }}</label>
                             <input type="email" name="email" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->email }}" style="padding:12px;">
                             @error('email')
@@ -70,8 +70,8 @@
                         {{-- Password --}}
                         <div class="mb-3">
                             <label class="form-label fw-bold text-muted">
-                                Password
-                                <small class="text-muted fw-normal">(leave blank to keep current)</small>
+                                {{ __('language.Password') }}
+                                <small class="text-muted fw-normal">({{ __('language.leave blank to keep current') }})</small>
                             </label>
                             <input type="password" name="password" class="form-control rounded-3 border-0 shadow-sm"
                                 style="padding:12px;">
@@ -82,7 +82,7 @@
 
                         {{-- Role --}}
                         <div class="mb-3">
-                            <label class="form-label fw-bold text-muted">Role</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Role') }}</label>
                             <input type="text" name="role" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->role }}" style="padding:12px;">
                             @error('role')
@@ -92,7 +92,7 @@
 
                         {{-- Status --}}
                         <div class="mb-4">
-                            <label class="form-label fw-bold text-muted">Status</label>
+                            <label class="form-label fw-bold text-muted">{{ __('language.Status') }}</label>
                             <input type="text" name="status" class="form-control rounded-3 border-0 shadow-sm"
                                 value="{{ $result->status }}" style="padding:12px;">
                             @error('status')
@@ -104,7 +104,7 @@
                         <div class="d-grid">
                             <button type="submit" class="btn py-3 fw-bold text-white rounded-3"
                                 style="background: linear-gradient(135deg, #2e7d32, #1b5e20); font-size:1rem;">
-                                <i class="fa-solid fa-user-pen me-2"></i> Update User
+                                <i class="fa-solid fa-user-pen me-2"></i> {{ __('language.Update User') }}
                             </button>
                         </div>
 
