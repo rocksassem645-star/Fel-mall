@@ -3,6 +3,203 @@
    Edit anything here freely
    ============================================ */
 
+
+   /* ============================================
+   AUTH FORMS (Login & Register)
+   ============================================ */
+
+/* Auth Container */
+.auth-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f0e8 100%);
+}
+
+/* Auth Card */
+.auth-card {
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.auth-card:hover {
+    transform: translateY(-5px);
+}
+
+.auth-card .card-header {
+    background: linear-gradient(135deg, #2e7d32, #1b5e20);
+    padding: 1.5rem;
+    text-align: center;
+    border: none;
+}
+
+.auth-card .card-header h4 {
+    color: white;
+    margin: 0;
+    font-weight: 700;
+}
+
+.auth-card .card-body {
+    padding: 2rem;
+    background: white;
+}
+
+/* Auth Input Groups */
+.auth-input-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-input-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.input-icon-wrapper {
+    position: relative;
+}
+
+.input-icon-wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2e7d32;
+    font-size: 1rem;
+}
+
+.input-icon-wrapper input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.input-icon-wrapper input:focus {
+    outline: none;
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+/* Auth Button */
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2e7d32, #1b5e20);
+    color: white;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.auth-btn:hover {
+    background: linear-gradient(135deg, #f57c00, #e65100);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 124, 0, 0.3);
+}
+
+/* Auth Links */
+.auth-links {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.auth-links a {
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.auth-links a:hover {
+    color: #f57c00;
+    text-decoration: underline;
+}
+
+/* Remember Me Checkbox */
+.form-check-input {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-top: 0.15rem;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+}
+
+.form-check-label {
+    margin-left: 0.5rem;
+    color: #4a5568;
+}
+
+/* Alert Messages */
+.alert-custom {
+    border-radius: 12px;
+    border: none;
+    padding: 12px 20px;
+    margin-bottom: 1.5rem;
+}
+
+.alert-custom.alert-success {
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    color: #155724;
+}
+
+.alert-custom.alert-danger {
+    background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+    color: #721c24;
+}
+
+/* Dark Mode for Auth */
+@media (prefers-color-scheme: dark) {
+    .auth-container {
+        background: linear-gradient(135deg, #1a1a2e, #16213e);
+    }
+    
+    .auth-card .card-body {
+        background: #1e1e2e;
+    }
+    
+    .auth-input-group label {
+        color: #e2e8f0;
+    }
+    
+    .input-icon-wrapper input {
+        background: #2d2d3a;
+        border-color: #334155;
+        color: #e2e8f0;
+    }
+    
+    .input-icon-wrapper input:focus {
+        border-color: #4caf50;
+    }
+    
+    .form-check-label {
+        color: #cbd5e1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-card .card-body {
+        padding: 1.5rem;
+    }
+    
+    .input-icon-wrapper input {
+        padding: 10px 15px 10px 40px;
+    }
+}
 /* ----- RESET & BASE ----- */
 * {
     margin: 0;
