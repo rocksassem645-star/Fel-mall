@@ -59,12 +59,10 @@
                             {{ LaravelLocalization::getCurrentLocaleNative() }}
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                 <li>
-                                    <a class="dropdown-item"
-                                       rel="alternate"
-                                       hreflang="{{ $localeCode }}"
-                                       href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                        href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                         {{ $properties['native'] }}
                                     </a>
                                 </li>
@@ -74,6 +72,9 @@
 
                     {{-- Auth --}}
                     @auth
+                        <a href="{{ route('my.account') }}" class="btn btn-success fw-bold">
+                            <i class="fa-solid fa-gauge me-1"></i> {{ __('language.Dashboard') }}
+                        </a>
                         <div class="dropdown">
                             <button class="btn btn-login dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                 <i class="fa-solid fa-user me-1"></i>
@@ -81,7 +82,9 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a></li>
-                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf

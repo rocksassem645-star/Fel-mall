@@ -55,7 +55,15 @@ return [
     'instant_sync_desc'     => 'Инвентарь в реальном времени и отправка в тот же день.',
 
     // Account
+    'Orders Management' => 'Управление заказами',
+    'View and manage all orders' => 'Просмотр и управление всеми заказами',
+    'All Orders' => 'Все заказы',
+    'total orders' => 'всего заказов',
+    
+    'User ID' => 'ID пользователя',
+    'Total' => 'Итого',
     'My Orders'             => 'Мои заказы',
+    'My Account'             => 'Мой счет',
     'My Cart'               => 'Моя корзина',
     'Profile Settings'      => 'Настройки профиля',
     'Welcome back'          => 'С возвращением',
@@ -133,6 +141,11 @@ return [
     'delete_account_confirm_desc'   => 'Введите пароль для подтверждения удаления.',
     'Added to cart successfully' => 'Успешно добавлено в корзину!',
     'Back to Shop'               => 'Назад в магазин',
+    'Order Details' => 'Детали заказа',
+    'Viewing order' => 'Просмотр заказа',
+    'User ID' => 'ID пользователя',
+    'Product ID' => 'ID товара',
+    'Back to Home' => 'Вернуться на главную',
 
     // Orders
     'Cancel'                => 'Отменить',

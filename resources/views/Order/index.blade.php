@@ -5,9 +5,9 @@
 
     <div class="mb-4">
         <h2 style="font-weight:800; background: linear-gradient(135deg, #2e7d32, #4caf50); background-clip:text; -webkit-background-clip:text; color:transparent;">
-            Orders Management
+            {{ __('language.Orders Management') }}
         </h2>
-        <p class="text-muted">View and manage all orders</p>
+        <p class="text-muted">{{ __('language.View and manage all orders') }}</p>
     </div>
 
     <div class="card border-0 rounded-4 shadow-lg overflow-hidden">
@@ -19,8 +19,8 @@
                     <i class="fa-solid fa-bag-shopping fa-lg"></i>
                 </div>
                 <div>
-                    <h5 class="mb-0 fw-bold">All Orders</h5>
-                    <small style="opacity:0.85;">{{ $result->count() }} total orders</small>
+                    <h5 class="mb-0 fw-bold">{{ __('language.All Orders') }}</h5>
+                    <small style="opacity:0.85;">{{ $result->count() }} {{ __('language.total orders') }}</small>
                 </div>
             </div>
         </div>
@@ -30,10 +30,10 @@
                 <table class="table table-hover align-middle text-center mb-0">
                     <thead style="background:#f5f7fa;">
                         <tr>
-                            <th class="py-3 text-muted">ID</th>
-                            <th class="py-3 text-muted">User ID</th>
-                            <th class="py-3 text-muted">Total</th>
-                            <th class="py-3 text-muted">Status</th>
+                            <th class="py-3 text-muted">{{ __('language.ID') }}</th>
+                            <th class="py-3 text-muted">{{ __('language.User ID') }}</th>
+                            <th class="py-3 text-muted">{{ __('language.Total') }}</th>
+                            <th class="py-3 text-muted">{{ __('language.Status') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,7 +49,7 @@
                                         @elseif($order->status == 'delivered') bg-success
                                         @elseif($order->status == 'cancelled') bg-danger
                                         @endif">
-                                        {{ $order->status }}
+                                        {{ __('language.' . $order->status) }}
                                     </span>
                                 </td>
                             </tr>

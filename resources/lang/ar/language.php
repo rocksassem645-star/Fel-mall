@@ -55,7 +55,14 @@ return [
     'instant_sync_desc'     => 'مخزون في الوقت الفعلي وشحن في نفس اليوم.',
 
     // Account
+       'Orders Management' => 'إدارة الطلبات',
+    'View and manage all orders' => 'عرض وإدارة جميع الطلبات',
+    'All Orders' => 'جميع الطلبات',
+    'total orders' => 'إجمالي الطلبات',
+    'User ID' => 'رقم المستخدم',
+    'Total' => 'الإجمالي',
     'My Orders'             => 'طلباتي',
+    'My Account'             => 'حسابي',
     'My Cart'               => 'سلتي',
     'Profile Settings'      => 'إعدادات الملف الشخصي',
     'Welcome back'          => 'مرحباً بعودتك',
@@ -133,6 +140,11 @@ return [
     'delete_account_confirm_desc'   => 'أدخل كلمة المرور للتأكيد على الحذف النهائي.',
     'Added to cart successfully' => 'تمت الإضافة إلى السلة بنجاح!',
     'Back to Shop'               => 'العودة للمتجر',
+    'Order Details' => 'تفاصيل الطلب',
+    'Viewing order' => 'عرض الطلب',
+    'User ID' => 'معرّف المستخدم',
+    'Product ID' => 'معرّف المنتج',
+    'Back to Home' => 'العودة للرئيسية',
 
     // Orders
     'Cancel'                => 'إلغاء',

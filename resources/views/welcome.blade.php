@@ -19,8 +19,7 @@
                     @endauth
                 </div>
                 <div class="col-lg-6 text-center d-none d-lg-block">
-                    <img src="{{ asset('img/Logo.jpg') }}"
-                        style=" width: 350px; height: 350px; object-fit: contain;">
+                    <img src="{{ asset('img/Logo.jpg') }}" style=" width: 600px; height: 350px; object-fit: contain;">
                 </div>
             </div>
         </div>

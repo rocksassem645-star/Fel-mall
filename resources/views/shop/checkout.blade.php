@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col-md-7">
-            <div class="card shadow-sm">
+            <div class="card shadow-sm mb-4">
                 <div class="card-header bg-dark text-white">
                     <h5 class="mb-0">{{ __('language.Shipping Information') }}</h5>
                 </div>
@@ -23,6 +23,30 @@
                             <label class="form-label">{{ __('language.Billing Address') }}</label>
                             <textarea name="billing_address" class="form-control" rows="3" required></textarea>
                         </div>
+
+                        {{-- Payment Method --}}
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">{{ __('language.Payment Method') }}</label>
+
+                            <div class="form-check border rounded-3 p-3 mb-2">
+                                <input class="form-check-input" type="radio" name="payment_method"
+                                    id="pay_visa" value="visa" checked>
+                                <label class="form-check-label w-100" for="pay_visa">
+                                    <i class="fa-solid fa-credit-card me-2 text-primary"></i>
+                                    {{ __('language.Pay with Visa') }}
+                                </label>
+                            </div>
+
+                            <div class="form-check border rounded-3 p-3">
+                                <input class="form-check-input" type="radio" name="payment_method"
+                                    id="pay_cod" value="cash_on_delivery">
+                                <label class="form-check-label w-100" for="pay_cod">
+                                    <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>
+                                    {{ __('language.Cash on Delivery') }}
+                                </label>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-success btn-lg w-100">{{ __('language.Place Order') }}</button>
                     </form>
                 </div>

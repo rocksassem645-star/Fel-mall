@@ -5,6 +5,12 @@
 @section('content')
 
     <div class="container py-5">
+        @if (session('cart_success'))
+            <div class="alert alert-success border-0 rounded-3 mb-3 d-flex align-items-center">
+                <i class="fa-solid fa-check-circle me-2"></i>
+                {{ __('language.Added to cart successfully') }}
+            </div>
+        @endif
         <div class="row">
 
             {{-- Sidebar Filters --}}
@@ -28,7 +34,7 @@
                                     <a href="{{ route('category.products', $category->id) }}"
                                         class="text-decoration-none d-block p-2 rounded hover-bg-light">
                                         <i class="fa-solid fa-folder me-2 text-success"></i>
-                                      {{ $category->title_en ?? 'Unnamed' }}
+                                        {{ $category->title_en ?? 'Unnamed' }}
                                         <span
                                             class="badge bg-secondary float-end">{{ $category->products_count ?? ($category->products->count() ?? 0) }}</span>
                                     </a>

@@ -160,14 +160,14 @@ class OrderController extends Controller
         return view('shop.orders', compact('orders'));
     }
 
-    public function userShow($id)
-    {
-        $order = Order::where('user_id', Auth::id())
-            ->with('product')
-            ->findOrFail($id);
+  public function userShow($id)
+{
+    $result = Order::where('user_id', Auth::id())
+        ->with('product')
+        ->findOrFail($id);
 
-        return view('Order.show', compact('order'));
-    }
+    return view('Order.show', ['result' => $result]);
+}
 
     public function cancelOrder($id)
     {

@@ -27,6 +27,7 @@ return [
     'pending'               => 'Pending',
     'confirmed'             => 'Confirmed',
     'delivered'             => 'Delivered',
+    'My Account'             => 'My Account',
     'cancelled'             => 'Cancelled',
 
     // Welcome page
@@ -69,6 +70,12 @@ return [
     'View'                  => 'View',
     'View All Orders'       => 'View All Orders',
     'no_orders_yet'         => 'You haven\'t placed any orders yet.',
+     'Orders Management' => 'Orders Management',
+    'View and manage all orders' => 'View and manage all orders',
+    'All Orders' => 'All Orders',
+    'total orders' => 'total orders',
+    'User ID' => 'User ID',
+    
 
     // Shop
     'All Products'          => 'All Products',
@@ -88,7 +95,6 @@ return [
     'Keep your account secure' => 'Keep your account secure with a strong password',
     'Delete Account'        => 'Delete Account',
     'This action is permanent' => 'This action is permanent and cannot be undone',
-    'Profile Settings'      => 'Profile Settings',
     'Save'                          => 'Save',
     'Saved'                         => 'Saved!',
     'Current Password'              => 'Current Password',
@@ -103,9 +109,15 @@ return [
     'delete_account_confirm_desc'   => 'Please enter your password to confirm permanent deletion.',
     'Added to cart successfully' => 'Added to cart successfully!',
     'Back to Shop'               => 'Back to Shop',
+    'Order Details' => 'Order Details',
+    'Viewing order' => 'Viewing order',
+    'Home' => 'Home',
+    'User ID' => 'User ID',
+    'Product ID' => 'Product ID',
+    'Back to Home' => 'Back to Home',
+
 
     // Product show
-    'Home'                  => 'Home',
     'Shop'                  => 'Shop',
     'available'             => 'available',
     'Add to Cart'           => 'Add to Cart',

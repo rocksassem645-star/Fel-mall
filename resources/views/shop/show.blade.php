@@ -6,6 +6,8 @@
 
     <div class="container py-5">
 
+
+      
         {{-- Breadcrumb Navigation --}}
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
@@ -112,7 +114,7 @@
                                 <i class="fa-solid fa-ban me-2"></i>
                                 {{ __('language.Currently Unavailable') }}
                             </button>
-                        @endif 
+                        @endif
                     </div>
                 </div>
             </div>
