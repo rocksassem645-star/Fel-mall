@@ -20,7 +20,7 @@
                                 <small style="opacity:0.85;">{{ __('language.Viewing order') }} #{{ $result->id }}</small>
                             </div>
                         </div>
-                        <a href="{{ route('user.orders') }}" class="btn fw-bold"
+                        <a href="{{ Auth::user()->role == 'admin' ? route('home') : route('user.orders') }}"  class="btn fw-bold"
                             style="background:rgba(255,255,255,0.2); color:white; border-radius:8px; border:1px solid rgba(255,255,255,0.4);">
                             <i class="fa-solid fa-house me-1"></i> {{ __('language.Home') }}
                         </a>
@@ -76,7 +76,7 @@
 
                     </div>
 
-                    <a href="{{ route('user.orders') }}" class="btn w-100 py-3 fw-bold text-white rounded-3"
+                    <a href="{{ Auth::user()->role == 'admin' ? route('home') : route('user.orders') }}" class="btn w-100 py-3 fw-bold text-white rounded-3"
                         style="background: linear-gradient(135deg, #2e7d32, #1b5e20);">
                         <i class="fa-solid fa-house me-2"></i> {{ __('language.Back to Home') }}
                     </a>

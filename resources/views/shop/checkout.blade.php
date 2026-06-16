@@ -31,7 +31,7 @@
                             <div class="form-check border rounded-3 p-3 mb-2">
                                 <input class="form-check-input" type="radio" name="payment_method"
                                     id="pay_visa" value="visa" checked>
-                                <label class="form-check-label w-100" for="pay_visa">
+                                <label class="form-check-label w-100 text-dark" for="pay_visa">
                                     <i class="fa-solid fa-credit-card me-2 text-primary"></i>
                                     {{ __('language.Pay with Visa') }}
                                 </label>
@@ -40,7 +40,7 @@
                             <div class="form-check border rounded-3 p-3">
                                 <input class="form-check-input" type="radio" name="payment_method"
                                     id="pay_cod" value="cash_on_delivery">
-                                <label class="form-check-label w-100" for="pay_cod">
+                                <label class="form-check-label w-100 text-dark" for="pay_cod">
                                     <i class="fa-solid fa-money-bill-wave me-2 text-success"></i>
                                     {{ __('language.Cash on Delivery') }}
                                 </label>

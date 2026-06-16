@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-  dir="{{ in_array(app()->getLocale(), ['ar', 'en']) ? 'rtl' : 'ltr' }}">
+dir="{{ in_array(app()->getLocale(), ['ar']) ? 'rtl' : 'ltr' }}"
 
 <head>
     <meta charset="utf-8">
@@ -13,9 +13,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     {{-- Bootstrap RTL --}}
-    @if(in_array(app()->getLocale(), ['ar', 'en', 'ru']))
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-    @endif
+  @if(in_array(app()->getLocale(), ['ar']))
+    <link href="...bootstrap.rtl.min.css" rel="stylesheet">
+@endif
 
     {{-- Google Fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
